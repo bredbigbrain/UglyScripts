@@ -125,12 +125,22 @@ namespace Ugly.BuildPreprocess
 
         public T[] GetAssets<T>() where T : UnityEngine.Object
         {
-            T[] array = new T[assets.Length];
+            List<T> list = new List<T>(assets.Length);
+            T asset;
             for (int i = 0; i < assets.Length; i++)
             {
-                array[i] = assets[i] as T;
+                asset = assets[i] as T;
+                if (asset == null)
+                {
+                    GameObject go = assets[i] as GameObject;
+                    asset = go.GetComponent<T>();
+                }
+                if (asset != null)
+                {
+                    list.Add(asset);
+                }
             }
-            return array;
+            return list.ToArray();
         }
 
         private int removeIndex = -1;

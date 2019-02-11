@@ -5,7 +5,7 @@ namespace Ugly.BuildPreprocess
 {
     class PreprocessorsWindow: EditorWindow
     {
-        [MenuItem("Preprocessor/Open config window")]
+        [MenuItem("Tools/Preprocessor/Open config window")]
         public static void Init()
         {
             var window = GetWindow<PreprocessorsWindow>();
@@ -20,7 +20,7 @@ namespace Ugly.BuildPreprocess
 
         public void InitGUI()
         {
-            noPreprocessors = !BuildPreprocess.GetPreprocessors(out preprocessors);
+            noPreprocessors = !BuildPreprocessor.GetPreprocessors(out preprocessors);
             if(!noPreprocessors)
             {
                 for (int i = 0; i < preprocessors.Length; i++)
@@ -48,7 +48,7 @@ namespace Ugly.BuildPreprocess
                 GUILayout.Space(15);
                 if(GUILayout.Button("Save"))
                 {
-                    BuildPreprocess.SavePreprocessors(preprocessors);
+                    BuildPreprocessor.SavePreprocessors(preprocessors);
                 }
                 EditorGUILayout.EndScrollView();
             }

@@ -105,7 +105,7 @@ namespace Ugly.BuildPreprocess
             }
         }
 
-        [MenuItem("Preprocessor/Preprocess now")]
+        [MenuItem("Tools/Preprocessor/Preprocess now")]
         public static void Test()
         {
             (new BuildPreprocessor() as IPreprocessBuildWithReport).OnPreprocessBuild(null);

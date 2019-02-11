@@ -83,7 +83,7 @@ namespace Ugly.BuildPreprocess
                     error |= isArror;
 
                     messages.Add(new Message() { isError = isArror, text = message });
-                    logMessage += logMessage == null ? message : logMessage + "\n---------------------\n" + message;
+                    logMessage = logMessage == null ? message : logMessage + "\n---------------------\n" + message;
                 }
 
                 if (error)
